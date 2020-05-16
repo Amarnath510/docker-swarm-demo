@@ -48,14 +48,14 @@
     pwqvil9bjxaf        database            replicated          1/1                 amarnath510/mysql-5.6-docker-image:latest   
     frsjejc8lljf        spring-boot-app     replicated          1/1                 amarnath510/spring-boot-mysql-app:latest    *:80->8200/tcp
     ```
-  * To **check logs**,
-  
-  - `Leader-Node$ docker service logs -f database`
-     - From leader node we can look at logs of any services which even might be running on different nodes
-  * At the top you can see a port been opened (80, the one we mapped for 8200 of spring-boot-app). If we click on it, a url opens something like "http://ip172-18-0-82-bqvdc4tim9m000a8uafg-80.direct.labs.play-with-docker.com/"
-  * Try from browser by appending out API path, 
+  * To **check logs**:
+    - `Leader-Node$ docker service logs -f database`
+    - From leader node we can look at logs of any services which even might be running on different nodes
+    - At the top you can see a port been opened (80, the one we mapped for 8200 of spring-boot-app). If we click on it, a url opens something like "http://ip172-18-0-82-bqvdc4tim9m000a8uafg-80.direct.labs.play-with-docker.com/"
+    - Try from browser by appending out API path, 
     - http://ip172-18-0-82-bqvdc4tim9m000a8uafg-80.direct.labs.play-with-docker.com/company/employees
     - [] // should return empty array as there are no records in database yet
+
   * Open Postman, **POST:** http://ip172-18-0-82-bqvdc4tim9m000a8uafg-80.direct.labs.play-with-docker.com/company/employees/all
     with RAW-JSON data,
     ```
