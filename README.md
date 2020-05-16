@@ -76,6 +76,24 @@
     => Should see above records 
 
 
+# Docker Visualization
+
+- We can visualize how Swarm is managing containers and nodes. Use [docker-swarm-visualizer](https://github.com/dockersamples/docker-swarm-visualizer)
+- Go to your playground where already two services are running (spring & mysql). Run the visualizer too as,
+
+  `docker run -it -d -p 5000:8080 -v /var/run/docker.sock:/var/run/docker.sock dockersamples/visualizer`
+  (You can run on any port we just used 5000)
+- Now you will see a new port being exposed in the Docker as below,
+  
+  <img width="1284" alt="Screenshot 2020-05-16 at 11 13 31 PM" src="https://user-images.githubusercontent.com/4599623/82126520-ef2b4600-97ca-11ea-9165-58e0496a7169.png">
+
+
+- Now click on the `5000` port link at the top to see below beautiful visualizer where we see what are the nodes, names(worker/manager), which service is running on this node etc.
+
+<img width="995" alt="Screenshot 2020-05-16 at 11 15 38 PM" src="https://user-images.githubusercontent.com/4599623/82126553-2c8fd380-97cb-11ea-8b1e-a2778406e5a1.png">
+
+- You can do `docker container ls` and stop any container by `docker stop <con-id>` and immediately switch to visualier tab to see the beauty of visualization. You can try stopping spring-app and see how Swarm will restart it.
+
 
 # Docker Swam Demo using docker-compose
 
