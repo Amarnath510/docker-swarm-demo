@@ -96,5 +96,15 @@
 
 
 # Docker Swam Demo using docker-compose
-
-### TODO
+- Previous we have created leader-worker and then ran services manually. Now let's do it via "docker stack" which is similar to docker-compose
+  - Login to Docker playground
+  - Click on "settings icon" on left and select 1-manager(leader) and 1-worker.(It should be enough for our case else choose other options)
+  - Let's copy our compose file at https://github.com/Amarnath510/spring-boot-mysql-compose/blob/master/docker-compose.yml to manager node
+  - Go to manager node
+  - `manager> vi docker-compose.yml`
+      - => copy docker-compose.yml content to above file and save it (:wq)
+    `manager> docker stack deploy -c docker-compose.yml spring-mysql-stack` (give a name to this stack)
+    `manager> docker service ls`
+    `manager> docker service logs -f <service-name-which-you-get-from-"docker service ls">`
+  - Also run docker visualization to check the nodes and the services running in them
+ 
